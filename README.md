@@ -1,6 +1,6 @@
 # CodeAstro9
 Project repository for code astro group 9
-Authors: Anthony Girmena, Elena González Prieto, Ahmed Taha, Josh Weston
+Authors: Anthony Girmenia, Elena González Prieto, Ahmed Taha, Josh Weston
 
 
 End goal: Sky chart generator for observing on Mars.
