@@ -11,11 +11,12 @@ Dependencies:
     
 
 Input:
-    Planet Name
-    Datetime
+    name: Type(Str) - Planet name. Must be a solar system object!
+    date: Type(Str) - Date in yyyy-mm-dd format
     
 Output:
-    
+
+    datadict: Type(dict) - dictionary of values for planet.
     
 """
 
