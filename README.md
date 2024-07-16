@@ -1,6 +1,6 @@
 # CodeAstro9
 Project repository for code astro group 9
-Authors: (write your names here)
+Authors: Anthony Girmenia, Elena González Prieto, Ahmed Taha, Josh Weston
 
 
 End goal: Sky chart generator for observing on Mars.
@@ -32,8 +32,10 @@ Monday
   -Initial plan
   
 Tuesday
+- Finish functions 
 
 Wednesday
+- See Chicago 
 
 Thursday
 
