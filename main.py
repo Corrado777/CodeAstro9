@@ -99,6 +99,8 @@ def main():
 
     target_name = input("Enter the name of the target object: ")
     assert type(target_name) == str, 'The target name is not a string, please enter the correct target name'
+    if target_name == 'Mars' or target_name == 'mars':
+        print("Go outside and look down, you are standing on Mars!")
 
 
     '''End of User Inputs. '''
