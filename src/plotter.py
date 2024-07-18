@@ -2,7 +2,28 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def plot_ephemeris(altitudes, date, time, period, save = False):
+    '''
+    Plots the ephemeris of a celestial object based on its altitude over time.
 
+    Parameters:
+    -----------
+    altitudes : array-like
+        A sequence of altitude values to plot.
+    date : str
+        The date for which the ephemeris is plotted, formatted as 'YYYY-MM-DD'.
+    time : float
+        The current time in hours.
+    period : float
+        The period over which the ephemeris is plotted, in hours.
+    save : bool, optional
+        If True, the plot will be saved as a PNG file with the name 'ephemeris_<date>.png'.
+        Default is False.
+
+    Returns:
+    --------
+    None
+    '''
+    
     # Set up the plot
     fig, ax = plt.subplots()
     ax.set_title(f'Ephemeris for {date}')
