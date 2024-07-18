@@ -138,10 +138,12 @@ def main():
 
     timepoints = Time(julian_date, format='jd') + np.linspace(-0.5, 0.5, 500)
     mars_alt = []
+    earth_alt = []
     for time in timepoints:
         mars_alt.append(get_mars_sky_coords(time.jd, observatory.longitude, observatory.latitude, target_name))
+        earth_alt.append(get_earth_sky_coords(time.jd, observatory.longitude, observatory.latitude, target_name))
     
-    src.plotter.plot_ephemeris(timepoints.value, mars_alt, target_name)
+    src.plotter.plot_ephemeris(timepoints.value, mars_alt, earth_alt, target_name)
 
 
 

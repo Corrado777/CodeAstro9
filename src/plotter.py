@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-def plot_ephemeris(timepoints, altitudes, target_str):
+def plot_ephemeris(timepoints, altitudes_mars, altitudes_earth, target_str):
     """
     Plots the ephemeris of Mars.
 
@@ -13,8 +13,9 @@ def plot_ephemeris(timepoints, altitudes, target_str):
     None
     """
 
-    plt.plot(timepoints, altitudes, label=target_str)
-    plt.title(f'{target_str} Ephemeris on Mars at Given Observatory')
+    plt.plot(timepoints, altitudes_mars, label='Mars')
+    plt.plot(timepoints, altitudes_earth, label='Earth')
+    plt.title(f'{target_str} Ephemeris on Mars/Earth at Given Observatory')
     plt.xlabel('Time (Julian Date)')
     plt.ylabel('Altitude [deg]')
     plt.legend()
