@@ -42,7 +42,7 @@ def load_planet(name,date):
     #Check input is valid
     
     if name.lower() not in planets:
-        print("wrong!")
+        print("Invalid planet. Returning None...")
         return
     
     else:
@@ -91,7 +91,9 @@ def load_planet(name,date):
         dataformatted = []
         for d in datastrip:
             dataformatted.append(d)
-            
+
+        obliquity = vol_mean_radius= sidereal_rot_period = ""
+        
         # Extract sidereal rotation period and volumetric mean radius from physical data section
         for line in lines:
             if "Sidereal rot. period" in line:
