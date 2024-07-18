@@ -87,7 +87,7 @@ def main():
     '''User Inputs'''
 
     planet_name = input("Enter the name of the planet where the observatory will be located: ")
-    assert planet_name =='Mars', 'The planet name is not Mars, please enter the correct planet name'
+    assert planet_name =='Mars' or planet_name =='mars', 'The planet name is not Mars, please enter the correct planet name'
 
 
     # Prompt the user to enter observatory latitude and Longitude
