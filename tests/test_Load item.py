@@ -1,3 +1,11 @@
+import os
+import sys
+
+os.chdir(r"..")
+sys.path.append(os.path.abspath(os.curdir))
+
+from src.Load_item import load_planet
+
 def test_datadict():
     
     assert load_planet("Pluto","1996-09-13") == None
@@ -19,3 +27,6 @@ def test_datadict():
     print("tests for load_item.py passed")
     
     pass
+
+if __name__ == '__main__':
+    test_datadict()
