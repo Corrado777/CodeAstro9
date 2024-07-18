@@ -26,6 +26,17 @@ Created on Tue Jul 16 13:40:48 2024
             SIDEREAL_ROT_PERIOD: Sidereal rotation period, the time it takes for the object to complete one full rotation, measured in hours.
             VOL_MEAN_RADIUS: Volumetric mean radius, the average radius of the object, assuming it is a sphere, measured in kilometers.
             OBLIQUITY TO ORBIT: The angle between the object's equatorial plane and its orbital plane, measured in degrees.
+
+Dependencies:
+    
+
+Input:
+    Planet Name
+    Datetime
+    
+Output:
+    
+
     
 """
 
@@ -116,6 +127,7 @@ def load_planet(name,date):
             if line == "$$SOE":
                 data = lines[i + 1]
                 break
+
     
         if data is None:
             print("No data found")
@@ -125,17 +137,19 @@ def load_planet(name,date):
     
         # Initialize variables
         obliquity = vol_mean_radius = sidereal_rot_period = None
-    
+
         # Extract sidereal rotation period and volumetric mean radius from physical data section
         for line in lines:
             if "Sidereal rot. period" in line:
                 sidereal_rot_period = float(line.split('=')[1].split()[0])
             if "Vol. mean radius (km)" in line:
+
                 vol_mean_radius = float(line.split('=')[1].split()[0].split('+')[0])
             if "Obliquity to orbit" in line:
                 obliquity = float(line.split('=')[1].split()[0].strip().replace("'", ""))
     
         # Construct data dictionary
+
         if name.lower() == 'earth':
             datadict = {
                 "NAME": name.lower(),
@@ -143,7 +157,9 @@ def load_planet(name,date):
                 "RA": float(dataformatted[3]),
                 "DEC": float(dataformatted[4]),
                 "HELRANGE": float(dataformatted[7]),
+
                 "EARTHRANGE": float(dataformatted[5])
+
             }
         else:
             datadict = {
@@ -154,9 +170,11 @@ def load_planet(name,date):
                 "HELRANGE": float(dataformatted[5]),
                 "EARTHRANGE": float(dataformatted[7]),
                 "SIDEREAL_ROT_PERIOD": sidereal_rot_period,
+
                 "VOL_MEAN_RADIUS": vol_mean_radius,
                 "OBLIQUITY TO ORBIT": obliquity
             }
     
         return datadict
     
+
