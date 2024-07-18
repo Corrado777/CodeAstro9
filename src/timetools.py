@@ -12,7 +12,7 @@ class TimeConverter:
         self.earth_day_seconds = 24 * 60 * 60  # seconds in an Earth day
         self.mars_day_seconds = 24.6597 * 60 * 60  # seconds in a Mars day
 
-    def convert_to_mars_time(self)
+    def convert_to_mars_time(self):
         '''
         Converts Earth date and time to Martian time.
 
