@@ -1,43 +1,17 @@
-# CodeAstro9
-Project repository for code astro group 9
-Authors: Anthony Girmenia, Elena González Prieto, Ahmed Taha, Josh Weston
+# Martian Starhunter V1.0.0
+*Project repository for CodeAstro group 9*
 
-
-End goal: Sky chart generator for observing on Mars.
-
-Stretch goals: Other planets, other visualisation techniques
-
-Pipeline plan:
-
-  -Object to be observed
-  -Given time
-  -Our location (position and planet)
-
-In the first instance, can calculate the observation of a specific object from a specific location, then generalise
-
-  -Visualisation (observer chart) - altitude versus time
-  -Data
-  -potential stretch - position of sun/earth/other planets
-
-
-Dependencies:
-  -celestial coordinates/ephemeris catalogues
-  -time conversion process/database
+**Authors**: Anthony Girmenia, Elena González Prieto, Ahmed Taha, Josh Weston
 
 
 
-Day-to-day plan:
+# Usage
+Martian Starhunter is a python package developed to track objects on the sky for astronomical observations from the Martian surface. The code approximates the Martian sky for a given date and adjusts the target object position from its Earth-sky co-ordinates. 
 
-Monday
-  -Initial plan
-  
-Tuesday
-- Finish functions 
+## Installation
 
-Wednesday
-- See Chicago 
+install details can go here?
 
-Thursday
+## Running Martian Starhunter
 
-Friday
-  -Present!
+Use details go here
