@@ -1,32 +1,23 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-def plot_ephemeris(altitudes, date, time, period, save = False):
+def plot_ephemeris(timepoints, altitudes_mars, altitudes_earth, target_str):
+    """
+    Plots the ephemeris of Mars.
 
-    # Set up the plot
-    fig, ax = plt.subplots()
-    ax.set_title(f'Ephemeris for {date}')
-    ax.set_xlabel('Time')
-    ax.set_ylabel('Altitude')
+    Parameters:
+    timepoints (list): List of timepoints.
+    altitudes (list): List of altitudes corresponding to the timepoints.
 
-    # Timepoints centered on date and time, half a period in each direction
-    timepoints = np.linspace(time - period/2, time + period/2, 100)
+    Returns:
+    None
+    """
 
-    # Plot the ephemeris
-    ax.plot(timepoints, altitudes, label='Altitude')
-    ax.axvline(time, color='red', linestyle='--', label='Current time')
-    ax.legend()
-    ax.grid()
+    plt.plot(timepoints, altitudes_mars, label='Mars')
+    plt.plot(timepoints, altitudes_earth, label='Earth')
+    plt.title(f'{target_str} Ephemeris on Mars/Earth at Given Observatory')
+    plt.xlabel('Time (Julian Date)')
+    plt.ylabel('Altitude [deg]')
+    plt.legend()
     plt.show()
-
-    if save:
-        fig.savefig(f'ephemeris_{date}.png')
-
-
-if __name__ == '__main__':
-    altitudes = np.sin(np.linspace(0, 2*np.pi, 100))
-    date = '2021-01-01'
-    time = 12
-    period = 24
-    plot_ephemeris(altitudes, date, time, period, save=False)
 

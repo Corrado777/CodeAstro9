@@ -1,3 +1,5 @@
+from astropy.coordinates import SkyCoord
+import astropy.units as u
 def calc_pos_planet_rel_Earth(planet):
     
     '''Function to calculate the position of the planet with respect to Earth. 
@@ -54,7 +56,7 @@ def calc_pos_target_rel_planet(planet, target_label):
         ---------------
         target_rel_planet: SkyCoord object
         '''
-    
+
     #getting SkyCoord Info for target and planet
     planet = calc_pos_planet_rel_Earth(planet)
     target = calc_pos_target_rel_Earth(target_label)
