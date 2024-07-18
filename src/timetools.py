@@ -1,7 +1,6 @@
 from astropy.time import Time
 import datetime
-from astropy.coordinates import get_sun, AltAz, solar_system_ephemeris
-
+from astropy.coordinates import get_sun, AltAz, solar_system_ephemeris, get_body
 
 class TimeConverter:
     def __init__(self, earth_date, earth_time):
