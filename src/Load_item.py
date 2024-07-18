@@ -42,7 +42,7 @@ def load_planet(name,date):
     #Check input is valid
     
     if name.lower() not in planets:
-        print("Invalid planet. Returning None...")
+        print("wrong!")
         return
     
     else:
@@ -71,29 +71,25 @@ def load_planet(name,date):
         URL = str(URL_pre+planet+ephem_setting+obs+duration+data+ang+csv_format)
         r = requests.get(url = URL)
         data = r.content
-        data = data.decode()
+        content = data.decode()
         
-        f = open(name+'.csv','w')
-        f.write(data)
-        f.close()
-        
-        lines = []
-        with open(name+'.csv','r') as dataFile:
-            for line in dataFile:
-                line = line.strip()
-                lines.append(line)
-        for i in range(len(lines)):
-            if lines[i] == "$$SOE": # The data we are interested in is stored in csv format in the line after this keyword
-                data = lines[i+1]
+        # Extract relevant data
+        lines = content.splitlines()
+        data = None
+        for i, line in enumerate(lines):
+            if line == "$$SOE":
+                data = lines[i + 1]
                 break
-
-        datastrip = data.split(',')
-        dataformatted = []
-        for d in datastrip:
-            dataformatted.append(d)
-
-        obliquity = vol_mean_radius= sidereal_rot_period = ""
-        
+    
+        if data is None:
+            print("No data found")
+            return
+    
+        dataformatted = data.split(',')
+    
+        # Initialize variables
+        obliquity = vol_mean_radius = sidereal_rot_period = None
+    
         # Extract sidereal rotation period and volumetric mean radius from physical data section
         for line in lines:
             if "Sidereal rot. period" in line:
@@ -101,9 +97,9 @@ def load_planet(name,date):
             if "Vol. mean radius (km)" in line:
                 vol_mean_radius = float(line.split('=')[1].split()[0].split('+')[0])
             if "Obliquity to orbit" in line:
-                obliquity = line.split('=')[1].split()[0].strip()
-            
-                
+                obliquity = float(line.split('=')[1].split()[0].strip().replace("'", ""))
+    
+        # Construct data dictionary
         if name.lower() == 'earth':
             datadict = {
                 "NAME": name.lower(),
@@ -124,5 +120,32 @@ def load_planet(name,date):
                 "SIDEREAL_ROT_PERIOD": sidereal_rot_period,
                 "VOL_MEAN_RADIUS": vol_mean_radius,
                 "OBLIQUITY TO ORBIT": obliquity
-    }
+            }
+    
         return datadict
+    
+    
+def test_datadict():
+    
+    assert load_planet("Pluto","1996-09-13") == None
+    
+    assert load_planet("Earth","0000-01-01") == None
+    
+    test_dict = load_planet("Mercury","2000-01-01")
+    
+    assert test_dict['NAME'] == "mercury"
+    
+    assert isinstance(test_dict['OBLIQUITY TO ORBIT'],float)
+    
+    assert isinstance(test_dict['DATE'], str)
+
+    test_dict_earth = load_planet("Earth","2024-07-18")
+    
+    assert test_dict_earth['EARTHRANGE'] == 0
+    
+    print("tests for load_item.py passed")
+    
+    pass
+
+test_datadict()
+    
