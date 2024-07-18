@@ -1,10 +1,10 @@
 class Planet():
-    def __init__(self, label, period, radius, distance, tilt, ra, dec):
-        self.label = label
-        self.period = period
-        self.radius = radius
-        self.distance = distance
-        self.tilt = tilt
-        self.ra = ra
-        self.dec = dec
+    def __init__(self):
+        self.label = 'None'
+        self.period = 0.
+        self.radius = 0.
+        self.distance = 0.
+        self.tilt = 0.
+        self.ra = 0.
+        self.dec = 0.
         
