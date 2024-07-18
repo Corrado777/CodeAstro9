@@ -101,6 +101,8 @@ def main():
     assert type(target_name) == str, 'The target name is not a string, please enter the correct target name'
     if target_name == 'Mars' or target_name == 'mars':
         print("Go outside and look down, you are standing on Mars!")
+        # exit the program
+        return
 
 
     '''End of User Inputs. '''
