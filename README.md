@@ -1,4 +1,4 @@
-# Martian Starhunter V1.0.0
+# Martian Starhunter V1.0.0 ![image info](./Logo_1.png)
 *Project repository for CodeAstro group 9*
 
 **Authors**: Anthony Girmenia, Elena González Prieto, Ahmed Taha, Josh Weston
