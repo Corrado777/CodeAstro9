@@ -10,8 +10,26 @@ Martian Starhunter is a python package developed to track objects on the sky for
 
 ## Installation
 
-install details can go here?
+Clone the github repository to your desired directory.
 
 ## Running Martian Starhunter
 
-Use details go here
+Navigate to the Martian Starhunter folder in your terminal.
+
+    cd ../martian_starhunter
+
+Run main.py in Python.
+
+    python main.py
+
+Enter desired criteria when prompted. 
+
+    Welcome to Martian Star Hunter!
+    
+    Enter the name of the planet where the observatory will be located: Mars
+    
+    Enter observatory latitude and longitude separated by commas (e.g., value1,value2): 69,90
+    
+    Enter the date in the format YYYY-MM-DD: 2024-09-18
+    
+    Enter the name of the target object: M31
