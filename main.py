@@ -10,6 +10,7 @@ import src.planet
 import src.Load_item
 import src.timetools
 import src.calc_pos
+import src.plotter
 
 
 
@@ -59,6 +60,8 @@ def get_earth_sky_coords(julian_date, earth_location_longitude, earth_location_l
     
     #print(f"Target's position on Mars at jd {julian_date}: Altitude {sirius_altaz.alt}, Azimuth {sirius_altaz.az}")
     return target_altaz.alt.value
+
+
 
 
 
@@ -130,8 +133,15 @@ def main():
     rel_position = src.calc_pos.calc_pos_target_rel_planet(planet, target_name)
 
     # Get the altitude of the target on the maritan sky where the observatory is
-    mars_altitude = get_mars_sky_coords(julian_date, observatory.longitude, observatory.latitude, target_name)
-    print(f"The altitude of {target_name} on the Martian sky is: {mars_altitude} degrees")
+    # mars_altitude = get_mars_sky_coords(julian_date, observatory.longitude, observatory.latitude, target_name)
+    # print(f"The altitude of {target_name} on the Martian sky is: {mars_altitude} degrees")
+
+    timepoints = Time(julian_date, format='jd') + np.linspace(-12, 12, 300)
+    mars_alt = []
+    for time in timepoints:
+        mars_alt.append(get_mars_sky_coords(time.jd, observatory.longitude, observatory.latitude, target_name))
+    
+    src.plotter.plot_ephemeris(timepoints.value, mars_alt)
 
 
 
