@@ -12,7 +12,7 @@
 
 
 # Usage
-Martian Starhunter is a python package developed to track objects on the sky for astronomical observations from the Martian surface. The code approximates the Martian sky for a given date and adjusts the target object position from its Earth-sky co-ordinates. 
+Martian Starhunter is a python package developed to track objects on the sky for astronomical observations from the Martian surface. The code approximates the Martian sky for a given date and adjusts the target object position from its Earth-sky coordinates. 
 
 ## Installation
 
