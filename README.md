@@ -20,7 +20,7 @@ Clone the github repository to your desired directory.
 
 Navigate to the Martian Starhunter folder in your terminal.
 
-    cd ../martian_starhunter
+    cd ../CodeAstro9
 
 Run main.py in Python.
 
